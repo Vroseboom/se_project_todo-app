@@ -10,9 +10,8 @@ import TodoCounter from "../components/TodoCounter.js";
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopupEl = document.querySelector("#add-todo-popup");
 const addTodoForm = document.forms["add-todo-form"];
-const addTodoCloseBtn = addTodoPopupEl.querySelector(".popup__close");
 const todoTemplate = document.querySelector("#todo-template");
-const todosList = document.querySelector(".todos__list");
+const todoList = document.querySelector(".todos__list");
 
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 
@@ -41,7 +40,7 @@ const addTodoPopup = new PopupWithForm({
     date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
 
     const id = uuidv4();
-    const values = { name: inputValues.name, date, id };
+    const values = { name: inputValues.name, date, completed: false, id };
     const todo = generateTodo(values);
     section.addItem(todo);
     newTodoValidator.resetValidation();
